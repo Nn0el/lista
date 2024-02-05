@@ -3,7 +3,6 @@ const router = express.Router()
 const pool = require('../db')
 
 router.get('/', function (req, res) {
-    console.log(story.parts[0])
     res.render('index.njk')
 
   })
