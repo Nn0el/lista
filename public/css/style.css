@@ -2,15 +2,37 @@ body {
     font-family: sans-serif;
     font-size: 1.2rem;
     color: #121212;
-    background-color: #fefefe;
+    background-color: #ffbc65;
   }
 
   
+header{
+  text-align: center;
+}
   .container {
-    max-width: 54rem;
+    align-items: center;
+  
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+  
+  }
+
+  img{
+    max-width: 25rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
+  nav{
+   img{
+    margin-top: 2ch;
+    max-width: 12ch;
+   }
+    margin-inline: auto;
+    
+  }
