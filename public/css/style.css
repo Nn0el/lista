@@ -26,12 +26,14 @@ header{
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
+    margin-inline: auto;
   }
 
   nav{
    img{
     margin-top: 2ch;
     max-width: 12ch;
+    
    }
     margin-inline: auto;
     
