@@ -1,13 +1,13 @@
 {% extends "layout.njk" %}
-{% blcok content %}
-<main class= "wrapper">
-<h1>Lägg till en pasta</h1>
-<form action="/newpasta" method="post">
-    <label for="pasta">pasta</label>
-<input type="text" id="pasta" name="pasta" required>
-    <textarea name="description" id="description" cols="30" rows="10"></textarea>
-<input type="submit" value="skapa ny pasta">
+{% block content %}
+<main class="wrapper">
+    <h1>Lägg till en pasta</h1>
+    <form action="/newpasta" method="post">
+        <label for="pasta">pasta</label>
+        <input type="text" id="pasta" name="pasta" required>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <input type="submit" value="skapa ny pasta">
 
-</form>
+    </form>
 </main>
 {% endblock %}

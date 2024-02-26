@@ -37,13 +37,24 @@ router.get('/dbtest', async function (req, res) {
   return res.json({ pasta })
 })
 
-router.get('/newpasta', function(req, res) {
+router.get('/newpasta', function (req, res) {
   res.render('newpasta.njk', { title: 'Ny pasta' })
 })
 
 router.get('/newpasta', async function (req, res) {
   console.log(pasta)
   res.json(req.body)
+})
+
+router.post('/newpasta', async function (req, res) {
+  const namn = req.body.namn
+  const form = req.body.form
+  const [result] = await pool.promise().query('INSERT INTO noel_pasta (namn, form) VALUES (?,?)',
+    [namn, form]
+  )
+
+  res.json('/pastas')
+
 })
 
 module.exports = router
