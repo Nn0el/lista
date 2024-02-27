@@ -21,12 +21,27 @@ router.get('/pastas', async (req, res) => {
 
 })
 
+router.get("/pastas/new", async function (req, res) {
+  try {
+    const [sauces] = await pool.promise().query('SELECT * FROM noel_sauce')
+    return res.render('newpasta.njk', {
+      title: 'ny pasta',
+      sauces: sauces
+
+    })
+
+  } catch (error) {
+    console.log(error)
+    res.sendStatus(500)
+  }
+})
 
 router.get("/pastas/:id", (req, res) => {
   //SELECT * FROM noel_pasta JOIN noel_sauce on noel_pasta.sauce_id = noel_sauce.id where noel_pasta.id = 2
   const id = req.params.id
   console.log(id)
   // SELECT * pastas WHERE id = req.params.id
+
 })
 
 
@@ -37,23 +52,19 @@ router.get('/dbtest', async function (req, res) {
   return res.json({ pasta })
 })
 
-router.get('/newpasta', function (req, res) {
-  res.render('newpasta.njk', { title: 'Ny pasta' })
-})
 
-router.get('/newpasta', async function (req, res) {
-  console.log(pasta)
-  res.json(req.body)
-})
 
-router.post('/newpasta', async function (req, res) {
+
+router.post('/pastas/new', async function (req, res) {
+  console.log(req.body)
   const namn = req.body.namn
   const form = req.body.form
+  console.log(namn, form)
   const [result] = await pool.promise().query('INSERT INTO noel_pasta (namn, form) VALUES (?,?)',
     [namn, form]
   )
 
-  res.json('/pastas')
+  res.json(result)
 
 })
 

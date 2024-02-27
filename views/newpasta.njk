@@ -2,11 +2,16 @@
 {% block content %}
 <main class="wrapper">
     <h1>Lägg till en pasta</h1>
-    <form action="/newpasta" method="post">
-        <label for="pasta">pasta</label>
-        <input type="text" id="pasta" name="pasta" required>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    <form action="/pastas/new" method="post">
+        <label for="namn">namn</label>
+        <input type="text" id="namn" name="namn" required>
+        <textarea name="form" id="form" cols="30" rows="10"></textarea>
         <input type="submit" value="skapa ny pasta">
+        <select name="sauce" id="sauce">
+            {% for sauce in sauces %}
+              <option value="{{ sauce.id }}">{{ sauce.colour }}</option>
+            {% endfor %}
+          </select>
 
     </form>
 </main>
