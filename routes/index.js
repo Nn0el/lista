@@ -64,9 +64,13 @@ router.post('/pastas/new', async function (req, res) {
     [namn, form]
   )
 
-  res.json(result)
-
+  
+  if (result.affectedRows === 1) {
+    res.redirect('/pastas/new')
+  }
 })
+
+
 
 module.exports = router
 

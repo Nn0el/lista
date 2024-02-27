@@ -3,8 +3,14 @@
 {% block content %}
 
 <main class= "wrapper">
-<h1>{{title}}</h1>
 
+<h1>{{title}}</h1>
+ <ul class="pastalist">
+    <li><strong>Namn</strong><strong>Form</strong><strong></strong></li>
+    {% for pasta in pastas %}
+      <li><a href="/pastas/new/{{pasta.id}}">{{ pasta.name }}</a>{{ pasta.form }}<a href="/pastas/new/{{ pasta.id }}/delete">Ta bort pasta</a></li>
+    {% endfor %}
+  </ul>
 
 </main>
 
