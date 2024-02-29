@@ -5,10 +5,21 @@ const pool = require('../db')
 const nunjucks = require('nunjucks')
 
 
-router.get('/', function (req, res) {
-  res.render('index.njk')
+router.get('/', (req, res) => {
+
+  const [pastas] = pool.promise().query('SELECT * FROM noel_pasta')
+  console.log(pastas)
+  res.render(pastas.njk, {
+    pastas
+  })
 
 
+
+
+})
+
+router.get('/:id', async function (req, res) {
+  res.send("pastas")
 })
 
 
@@ -64,7 +75,7 @@ router.post('/pastas/new', async function (req, res) {
     [namn, form]
   )
 
-  
+
   if (result.affectedRows === 1) {
     res.redirect('/pastas/new')
   }
